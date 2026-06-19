@@ -1,0 +1,3 @@
+C:/Users/amine_67m0gu/Downloads/Mario/build/CMakeFiles/mario.dir
+C:/Users/amine_67m0gu/Downloads/Mario/build/CMakeFiles/edit_cache.dir
+C:/Users/amine_67m0gu/Downloads/Mario/build/CMakeFiles/rebuild_cache.dir
