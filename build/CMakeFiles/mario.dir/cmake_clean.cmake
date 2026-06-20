@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/mario.dir/src/Player.cpp.obj"
+  "CMakeFiles/mario.dir/src/Player.cpp.obj.d"
   "CMakeFiles/mario.dir/src/main.cpp.obj"
   "CMakeFiles/mario.dir/src/main.cpp.obj.d"
   "libmario.dll.a"

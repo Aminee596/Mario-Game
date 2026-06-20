@@ -1,5 +1,6 @@
-CMakeFiles/mario.dir/src/main.cpp.obj: \
- C:\Users\amine_67m0gu\Downloads\Mario\src\main.cpp \
+CMakeFiles/mario.dir/src/Player.cpp.obj: \
+ C:\Users\amine_67m0gu\Downloads\Mario\src\Player.cpp \
+ C:/Users/amine_67m0gu/Downloads/Mario/include/Player.h \
  C:/msys64/ucrt64/include/SDL2/SDL.h \
  C:/msys64/ucrt64/include/SDL2/SDL_main.h \
  C:/msys64/ucrt64/include/SDL2/SDL_stdinc.h \
@@ -254,6 +255,5 @@ CMakeFiles/mario.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/SDL2/SDL_version.h \
  C:/msys64/ucrt64/include/SDL2/SDL_locale.h \
  C:/msys64/ucrt64/include/SDL2/SDL_misc.h \
- C:/Users/amine_67m0gu/Downloads/Mario/include/Player.h \
  C:/msys64/ucrt64/include/SDL2/SDL_image.h \
  C:/msys64/ucrt64/include/SDL2/SDL.h

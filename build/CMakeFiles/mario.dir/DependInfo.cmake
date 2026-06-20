@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/amine_67m0gu/Downloads/Mario/src/Player.cpp" "CMakeFiles/mario.dir/src/Player.cpp.obj" "gcc" "CMakeFiles/mario.dir/src/Player.cpp.obj.d"
   "C:/Users/amine_67m0gu/Downloads/Mario/src/main.cpp" "CMakeFiles/mario.dir/src/main.cpp.obj" "gcc" "CMakeFiles/mario.dir/src/main.cpp.obj.d"
   )
 
