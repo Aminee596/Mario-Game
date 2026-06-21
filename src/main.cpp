@@ -8,7 +8,10 @@ int main(int argc, char* argv[]) {
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     Player player(100, 100);
-    if (!player.loadSprite(renderer)) { SDL_Log("Failed to load sprite"); return 1; }
+    if (!player.loadSprites(renderer)) { SDL_Log("Failed to load sprites"); return 1; }
+    int winW, winH;
+    SDL_GetWindowSize(window, &winW, &winH);
+    player.y = winH * 0.78f - player.h;
     float gravity = 1000.0f;
     bool isFullscreen = false;
 
@@ -21,7 +24,6 @@ int main(int argc, char* argv[]) {
         float dt = (now - lastTime) / 1000.0f;
         lastTime = now;
 
-        int winW, winH;
         SDL_GetWindowSize(window, &winW, &winH);
         SDL_Rect ground = {0, (int)(winH * 0.78f), winW, winH};
         
