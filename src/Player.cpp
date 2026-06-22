@@ -23,7 +23,7 @@
     }
 
     void Player::handleInput(const Uint8* keys, float dt) {
-        if (keys[SDL_SCANCODE_LEFT])  { vx = -speed; facingLeft = true; }
+        if (keys[SDL_SCANCODE_LEFT]) { vx = -speed; facingLeft = true; }
         if (keys[SDL_SCANCODE_RIGHT]) { vx = speed;  facingLeft = false; }
         if (keys[SDL_SCANCODE_SPACE] && onGround) { vy = -600.0f; onGround = false; }
     }
@@ -37,10 +37,10 @@
         if (player.y + player.h >= ground.y) { y = ground.y - h; vy = 0; onGround = true; }
         else onGround = false;
 
-        if (onGround && vx == 0.0f)    state = PlayerState::Idle;
-        else if (onGround && vx != 0)  state = PlayerState::Walking;
-        else if (!onGround && vy < 0)  state = PlayerState::Jumping;
-        else                           state = PlayerState::Falling;
+        if (onGround && vx == 0.0f) state = PlayerState::Idle;
+        else if (onGround && vx != 0) state = PlayerState::Walking;
+        else if (!onGround && vy < 0) state = PlayerState::Jumping;
+        else state = PlayerState::Falling;
 
         if (state == PlayerState::Walking) {
             animTimer += dt;
@@ -53,10 +53,10 @@
 
     void Player::draw(SDL_Renderer* renderer) {
         SDL_Texture* current = baseAnimation[0];
-        if (state == PlayerState::Idle)     current = baseAnimation[0];
-        if (state == PlayerState::Walking)  current = baseAnimation[1 + walkFrame];
-        if (state == PlayerState::Jumping)  current = baseAnimation[4];
-        if (state == PlayerState::Falling)  current = baseAnimation[5];
+        if (state == PlayerState::Idle) current = baseAnimation[0];
+        if (state == PlayerState::Walking) current = baseAnimation[1 + walkFrame];
+        if (state == PlayerState::Jumping) current = baseAnimation[4];
+        if (state == PlayerState::Falling) current = baseAnimation[5];
 
         SDL_RendererFlip flip = facingLeft ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL;
         SDL_Rect dst = {(int)roundf(x), (int)roundf(y), w, h};

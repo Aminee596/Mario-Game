@@ -10,7 +10,7 @@ SDL_Texture* PauseMenu::loadTexture(SDL_Renderer* renderer, const char* path) {
 
 bool PauseMenu::load(SDL_Renderer* renderer) {
     resumeBtn = loadTexture(renderer, "assets/startbutton.jpg");
-    menuBtn   = loadTexture(renderer, "assets/startbutton.jpg");
+    menuBtn = loadTexture(renderer, "assets/startbutton.jpg");
     return resumeBtn && menuBtn;
 }
 
@@ -47,10 +47,10 @@ void PauseMenu::draw(SDL_Renderer* renderer, int winW, int winH) {
     SDL_Rect rr = getResumeRect(winW, winH);
     SDL_Rect mr = getMenuRect(winW, winH);
     SDL_RenderCopy(renderer, resumeBtn, nullptr, &rr);
-    SDL_RenderCopy(renderer, menuBtn,   nullptr, &mr);
+    SDL_RenderCopy(renderer, menuBtn, nullptr, &mr);
 }
 
 void PauseMenu::free() {
     if (resumeBtn) { SDL_DestroyTexture(resumeBtn); resumeBtn = nullptr; }
-    if (menuBtn)   { SDL_DestroyTexture(menuBtn);   menuBtn   = nullptr; }
+    if (menuBtn) { SDL_DestroyTexture(menuBtn);   menuBtn   = nullptr; }
 }
