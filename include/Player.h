@@ -5,11 +5,10 @@
 enum class PlayerState { Idle, Walking, Jumping, Falling};
 
 struct Player {
-    float x, y, vx,vy;
+    float x, y, vx, vy;
     float speed = 500.0f;
     bool onGround = false;
     bool facingLeft = false;
-    bool moving = false;
     PlayerState state = PlayerState::Idle;
 
     float animTimer = 0.0f;
@@ -19,7 +18,7 @@ struct Player {
     SDL_Texture* baseAnimation[6] = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
     int w = 0, h = 0;
 
-    Player(float startX, float startY) : x(startX), y(startY), vy(0) {}
+    Player(float startX, float startY) : x(startX), y(startY), vx(0), vy(0) {}
 
     bool loadSprites(SDL_Renderer* renderer);
     void handleInput(const Uint8* keys, float dt);
