@@ -23,7 +23,6 @@
     }
 
     void Player::handleInput(const Uint8* keys, float dt) {
-        vx = 0.0f;
         if (keys[SDL_SCANCODE_LEFT])  { vx = -speed; facingLeft = true; }
         if (keys[SDL_SCANCODE_RIGHT]) { vx = speed;  facingLeft = false; }
         if (keys[SDL_SCANCODE_SPACE] && onGround) { vy = -600.0f; onGround = false; }
