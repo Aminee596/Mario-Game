@@ -1,18 +1,18 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <vector>
 
 enum class PlayerState { Idle, Walking, Jumping, Falling};
 
 struct Player {
     float x, y, vx, vy;
-    float speed = 500.0f;
+    float speed = 550.0f; float gravity = 200.0f;
     bool onGround = false;
     bool facingLeft = false;
     PlayerState state = PlayerState::Idle;
 
     float animTimer = 0.0f;
-    float landTimer = 0.0f;
     int walkFrame = 0;
 
     SDL_Texture* baseAnimation[6] = {nullptr, nullptr, nullptr, nullptr, nullptr, nullptr};
@@ -22,8 +22,8 @@ struct Player {
 
     bool loadSprites(SDL_Renderer* renderer);
     void handleInput(const Uint8* keys, float dt);
-    void update(float dt, float gravity, SDL_Rect ground);
-    void draw(SDL_Renderer* renderer);
+    void update(float dt, float gravity, std::vector<SDL_FRect>& platforms);
+    void draw(SDL_Renderer* renderer, float cameraX);
     void free();
 
 private:

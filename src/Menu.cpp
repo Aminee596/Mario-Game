@@ -10,8 +10,8 @@ SDL_Texture* Menu::loadTexture(SDL_Renderer* renderer, const char* path) {
 
 bool Menu::load(SDL_Renderer* renderer) {
     bg = loadTexture(renderer, "assets/bg1.jpg");
-    startBtn = loadTexture(renderer, "assets/startbutton.jpg");
-    quitBtn = loadTexture(renderer, "assets/quitbutton.jpg");
+    startBtn = loadTexture(renderer, "assets/startbutton.png");
+    quitBtn = loadTexture(renderer, "assets/quitbutton.png");
     return bg && startBtn && quitBtn;
 }
 
