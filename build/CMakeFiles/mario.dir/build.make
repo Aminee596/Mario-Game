@@ -101,16 +101,67 @@ CMakeFiles/mario.dir/src/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/src/Player.cpp.s"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\amine_67m0gu\Downloads\Mario\src\Player.cpp -o CMakeFiles\mario.dir\src\Player.cpp.s
 
+CMakeFiles/mario.dir/src/Game.cpp.obj: CMakeFiles/mario.dir/flags.make
+CMakeFiles/mario.dir/src/Game.cpp.obj: CMakeFiles/mario.dir/includes_CXX.rsp
+CMakeFiles/mario.dir/src/Game.cpp.obj: C:/Users/amine_67m0gu/Downloads/Mario/src/Game.cpp
+CMakeFiles/mario.dir/src/Game.cpp.obj: CMakeFiles/mario.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\amine_67m0gu\Downloads\Mario\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mario.dir/src/Game.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/src/Game.cpp.obj -MF CMakeFiles\mario.dir\src\Game.cpp.obj.d -o CMakeFiles\mario.dir\src\Game.cpp.obj -c C:\Users\amine_67m0gu\Downloads\Mario\src\Game.cpp
+
+CMakeFiles/mario.dir/src/Game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mario.dir/src/Game.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\amine_67m0gu\Downloads\Mario\src\Game.cpp > CMakeFiles\mario.dir\src\Game.cpp.i
+
+CMakeFiles/mario.dir/src/Game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/src/Game.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\amine_67m0gu\Downloads\Mario\src\Game.cpp -o CMakeFiles\mario.dir\src\Game.cpp.s
+
+CMakeFiles/mario.dir/src/Menu.cpp.obj: CMakeFiles/mario.dir/flags.make
+CMakeFiles/mario.dir/src/Menu.cpp.obj: CMakeFiles/mario.dir/includes_CXX.rsp
+CMakeFiles/mario.dir/src/Menu.cpp.obj: C:/Users/amine_67m0gu/Downloads/Mario/src/Menu.cpp
+CMakeFiles/mario.dir/src/Menu.cpp.obj: CMakeFiles/mario.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\amine_67m0gu\Downloads\Mario\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mario.dir/src/Menu.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/src/Menu.cpp.obj -MF CMakeFiles\mario.dir\src\Menu.cpp.obj.d -o CMakeFiles\mario.dir\src\Menu.cpp.obj -c C:\Users\amine_67m0gu\Downloads\Mario\src\Menu.cpp
+
+CMakeFiles/mario.dir/src/Menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mario.dir/src/Menu.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\amine_67m0gu\Downloads\Mario\src\Menu.cpp > CMakeFiles\mario.dir\src\Menu.cpp.i
+
+CMakeFiles/mario.dir/src/Menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/src/Menu.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\amine_67m0gu\Downloads\Mario\src\Menu.cpp -o CMakeFiles\mario.dir\src\Menu.cpp.s
+
+CMakeFiles/mario.dir/src/PauseMenu.cpp.obj: CMakeFiles/mario.dir/flags.make
+CMakeFiles/mario.dir/src/PauseMenu.cpp.obj: CMakeFiles/mario.dir/includes_CXX.rsp
+CMakeFiles/mario.dir/src/PauseMenu.cpp.obj: C:/Users/amine_67m0gu/Downloads/Mario/src/PauseMenu.cpp
+CMakeFiles/mario.dir/src/PauseMenu.cpp.obj: CMakeFiles/mario.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\amine_67m0gu\Downloads\Mario\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mario.dir/src/PauseMenu.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mario.dir/src/PauseMenu.cpp.obj -MF CMakeFiles\mario.dir\src\PauseMenu.cpp.obj.d -o CMakeFiles\mario.dir\src\PauseMenu.cpp.obj -c C:\Users\amine_67m0gu\Downloads\Mario\src\PauseMenu.cpp
+
+CMakeFiles/mario.dir/src/PauseMenu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/mario.dir/src/PauseMenu.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\amine_67m0gu\Downloads\Mario\src\PauseMenu.cpp > CMakeFiles\mario.dir\src\PauseMenu.cpp.i
+
+CMakeFiles/mario.dir/src/PauseMenu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/mario.dir/src/PauseMenu.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\amine_67m0gu\Downloads\Mario\src\PauseMenu.cpp -o CMakeFiles\mario.dir\src\PauseMenu.cpp.s
+
 # Object files for target mario
 mario_OBJECTS = \
 "CMakeFiles/mario.dir/src/main.cpp.obj" \
-"CMakeFiles/mario.dir/src/Player.cpp.obj"
+"CMakeFiles/mario.dir/src/Player.cpp.obj" \
+"CMakeFiles/mario.dir/src/Game.cpp.obj" \
+"CMakeFiles/mario.dir/src/Menu.cpp.obj" \
+"CMakeFiles/mario.dir/src/PauseMenu.cpp.obj"
 
 # External object files for target mario
 mario_EXTERNAL_OBJECTS =
 
 mario.exe: CMakeFiles/mario.dir/src/main.cpp.obj
 mario.exe: CMakeFiles/mario.dir/src/Player.cpp.obj
+mario.exe: CMakeFiles/mario.dir/src/Game.cpp.obj
+mario.exe: CMakeFiles/mario.dir/src/Menu.cpp.obj
+mario.exe: CMakeFiles/mario.dir/src/PauseMenu.cpp.obj
 mario.exe: CMakeFiles/mario.dir/build.make
 mario.exe: C:/msys64/ucrt64/lib/libSDL2main.a
 mario.exe: C:/msys64/ucrt64/lib/libSDL2.dll.a
@@ -118,7 +169,7 @@ mario.exe: C:/msys64/ucrt64/lib/libSDL2_image.dll.a
 mario.exe: CMakeFiles/mario.dir/linkLibs.rsp
 mario.exe: CMakeFiles/mario.dir/objects1.rsp
 mario.exe: CMakeFiles/mario.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\amine_67m0gu\Downloads\Mario\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable mario.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\amine_67m0gu\Downloads\Mario\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable mario.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\mario.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

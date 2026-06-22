@@ -128,6 +128,78 @@ mario/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\mario.dir\build.make CMakeFiles/mario.dir/build
 .PHONY : mario/fast
 
+src/Game.obj: src/Game.cpp.obj
+.PHONY : src/Game.obj
+
+# target to build an object file
+src/Game.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mario.dir\build.make CMakeFiles/mario.dir/src/Game.cpp.obj
+.PHONY : src/Game.cpp.obj
+
+src/Game.i: src/Game.cpp.i
+.PHONY : src/Game.i
+
+# target to preprocess a source file
+src/Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mario.dir\build.make CMakeFiles/mario.dir/src/Game.cpp.i
+.PHONY : src/Game.cpp.i
+
+src/Game.s: src/Game.cpp.s
+.PHONY : src/Game.s
+
+# target to generate assembly for a file
+src/Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mario.dir\build.make CMakeFiles/mario.dir/src/Game.cpp.s
+.PHONY : src/Game.cpp.s
+
+src/Menu.obj: src/Menu.cpp.obj
+.PHONY : src/Menu.obj
+
+# target to build an object file
+src/Menu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mario.dir\build.make CMakeFiles/mario.dir/src/Menu.cpp.obj
+.PHONY : src/Menu.cpp.obj
+
+src/Menu.i: src/Menu.cpp.i
+.PHONY : src/Menu.i
+
+# target to preprocess a source file
+src/Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mario.dir\build.make CMakeFiles/mario.dir/src/Menu.cpp.i
+.PHONY : src/Menu.cpp.i
+
+src/Menu.s: src/Menu.cpp.s
+.PHONY : src/Menu.s
+
+# target to generate assembly for a file
+src/Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mario.dir\build.make CMakeFiles/mario.dir/src/Menu.cpp.s
+.PHONY : src/Menu.cpp.s
+
+src/PauseMenu.obj: src/PauseMenu.cpp.obj
+.PHONY : src/PauseMenu.obj
+
+# target to build an object file
+src/PauseMenu.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mario.dir\build.make CMakeFiles/mario.dir/src/PauseMenu.cpp.obj
+.PHONY : src/PauseMenu.cpp.obj
+
+src/PauseMenu.i: src/PauseMenu.cpp.i
+.PHONY : src/PauseMenu.i
+
+# target to preprocess a source file
+src/PauseMenu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mario.dir\build.make CMakeFiles/mario.dir/src/PauseMenu.cpp.i
+.PHONY : src/PauseMenu.cpp.i
+
+src/PauseMenu.s: src/PauseMenu.cpp.s
+.PHONY : src/PauseMenu.s
+
+# target to generate assembly for a file
+src/PauseMenu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mario.dir\build.make CMakeFiles/mario.dir/src/PauseMenu.cpp.s
+.PHONY : src/PauseMenu.cpp.s
+
 src/Player.obj: src/Player.cpp.obj
 .PHONY : src/Player.obj
 
@@ -185,6 +257,15 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... mario
+	@echo ... src/Game.obj
+	@echo ... src/Game.i
+	@echo ... src/Game.s
+	@echo ... src/Menu.obj
+	@echo ... src/Menu.i
+	@echo ... src/Menu.s
+	@echo ... src/PauseMenu.obj
+	@echo ... src/PauseMenu.i
+	@echo ... src/PauseMenu.s
 	@echo ... src/Player.obj
 	@echo ... src/Player.i
 	@echo ... src/Player.s

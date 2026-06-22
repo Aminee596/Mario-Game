@@ -1,4 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/mario.dir/src/Game.cpp.obj"
+  "CMakeFiles/mario.dir/src/Game.cpp.obj.d"
+  "CMakeFiles/mario.dir/src/Menu.cpp.obj"
+  "CMakeFiles/mario.dir/src/Menu.cpp.obj.d"
+  "CMakeFiles/mario.dir/src/PauseMenu.cpp.obj"
+  "CMakeFiles/mario.dir/src/PauseMenu.cpp.obj.d"
   "CMakeFiles/mario.dir/src/Player.cpp.obj"
   "CMakeFiles/mario.dir/src/Player.cpp.obj.d"
   "CMakeFiles/mario.dir/src/main.cpp.obj"

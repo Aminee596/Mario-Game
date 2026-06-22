@@ -1,5 +1,6 @@
-CMakeFiles/mario.dir/src/main.cpp.obj: \
- C:\Users\amine_67m0gu\Downloads\Mario\src\main.cpp \
+CMakeFiles/mario.dir/src/Game.cpp.obj: \
+ C:\Users\amine_67m0gu\Downloads\Mario\src\Game.cpp \
+ C:/Users/amine_67m0gu/Downloads/Mario/include/Game.h \
  C:/msys64/ucrt64/include/SDL2/SDL.h \
  C:/msys64/ucrt64/include/SDL2/SDL_main.h \
  C:/msys64/ucrt64/include/SDL2/SDL_stdinc.h \
@@ -254,9 +255,6 @@ CMakeFiles/mario.dir/src/main.cpp.obj: \
  C:/msys64/ucrt64/include/SDL2/SDL_version.h \
  C:/msys64/ucrt64/include/SDL2/SDL_locale.h \
  C:/msys64/ucrt64/include/SDL2/SDL_misc.h \
- C:/msys64/ucrt64/include/SDL2/SDL_image.h \
- C:/msys64/ucrt64/include/SDL2/SDL.h \
- C:/Users/amine_67m0gu/Downloads/Mario/include/Menu.h \
- C:/Users/amine_67m0gu/Downloads/Mario/include/Game.h \
  C:/Users/amine_67m0gu/Downloads/Mario/include/Player.h \
- C:/Users/amine_67m0gu/Downloads/Mario/include/PauseMenu.h
+ C:/msys64/ucrt64/include/SDL2/SDL_image.h \
+ C:/msys64/ucrt64/include/SDL2/SDL.h

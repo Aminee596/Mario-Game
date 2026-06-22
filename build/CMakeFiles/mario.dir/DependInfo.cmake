@@ -8,6 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/amine_67m0gu/Downloads/Mario/src/Game.cpp" "CMakeFiles/mario.dir/src/Game.cpp.obj" "gcc" "CMakeFiles/mario.dir/src/Game.cpp.obj.d"
+  "C:/Users/amine_67m0gu/Downloads/Mario/src/Menu.cpp" "CMakeFiles/mario.dir/src/Menu.cpp.obj" "gcc" "CMakeFiles/mario.dir/src/Menu.cpp.obj.d"
+  "C:/Users/amine_67m0gu/Downloads/Mario/src/PauseMenu.cpp" "CMakeFiles/mario.dir/src/PauseMenu.cpp.obj" "gcc" "CMakeFiles/mario.dir/src/PauseMenu.cpp.obj.d"
   "C:/Users/amine_67m0gu/Downloads/Mario/src/Player.cpp" "CMakeFiles/mario.dir/src/Player.cpp.obj" "gcc" "CMakeFiles/mario.dir/src/Player.cpp.obj.d"
   "C:/Users/amine_67m0gu/Downloads/Mario/src/main.cpp" "CMakeFiles/mario.dir/src/main.cpp.obj" "gcc" "CMakeFiles/mario.dir/src/main.cpp.obj.d"
   )
