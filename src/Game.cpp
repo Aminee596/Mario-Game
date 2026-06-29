@@ -1,8 +1,10 @@
 #include "Game.h"
 #include "World.h"
+#include "Mobs.h"
 
 void Game::init(SDL_Renderer* renderer, int winW, int winH) {
     player.loadSprites(renderer);
+    Mob::loadSprites(renderer);
     loadPauseButton(renderer);
     world.loadChunkSurfaces();
     world.loadTexture(renderer);
@@ -40,10 +42,20 @@ GameResult Game::update(float dt, int winW, int winH) {
     world.update(player.x, score, winH);
     float vyBefore = player.vy;
     player.update(dt, gravity, world.getPlatforms());
+    Mob::updateMobs(world.mobs, dt, gravity, world.getPlatforms());
     world.HitMysteryBox(player.x, player.y, player.w, player.h, vyBefore);
+
     if (world.collectCoins(player.x, player.y, player.w, player.h)) { score += 10; }
+
+    int mobResult = world.hitMobs(player.x, player.y, player.w, player.h, player.vy);
+    if (mobResult == 1) { score += 20; player.vy = -500; }
+    else if (mobResult == 2) { score += 20; player.vy = -500; }
+    else if (mobResult == 3) { score += 100; player.vy = -500; }
+    else if (mobResult == 4) { player.vy = -500; }
+    else if (mobResult == -1) { return GameResult::Death; }
+
     if (world.fullyInWater(player.x, player.y, player.w, player.h)) { return GameResult::Death; }
-    return GameResult::None;
+    return GameResult::None;   
 }
 
 void Game::draw(SDL_Renderer* renderer, int winW, int winH) {

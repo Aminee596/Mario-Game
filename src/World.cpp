@@ -2,6 +2,7 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 #include "Chunk.h"
+#include "Mobs.h"
 
 bool World::loadChunkSurfaces() {
     chunkSurfaces.clear();
@@ -32,17 +33,6 @@ void World::update(float playerX, int score, int winH) {
     if (playerX >= currentChunkStart + chunkWidth) {
         cycleForward(winH);
     }
-}
-
-void World::cycleForward(int winH) {
-    chunks.erase(chunks.begin());
-    float lastEnd = chunks.back().startX + chunkWidth;
-    Chunk c;
-    c.generate(lastEnd, chunkWidth, chunkSurfaces[1 + rand() % (chunkSurfaces.size() - 1)]);
-    chunks.push_back(c);
-    for (auto& ch : chunks) ch.hasLeftBarrier = false;
-    chunks[0].hasLeftBarrier = true;
-    rebuildPlatforms();
 }
 
 void World::rebuildPlatforms() {
@@ -89,6 +79,34 @@ bool World::HitMysteryBox(float playerX, float playerY, float playerW, float pla
     return false;
 }
 
+int World::hitMobs(float px, float py, float pw, float ph, float pvy) {
+    SDL_FRect pr = {px, py, pw, ph};
+    for (auto& mob : mobs) {
+        if (!mob.alive) continue;
+        SDL_FRect mr = {mob.x, mob.y, mob.w, mob.h};
+        if (!SDL_HasIntersectionF(&pr, &mr)) continue;
+
+        bool stomped = (pvy > 0 && (py + ph) < mob.y + mob.h * 0.5f);
+
+        switch (mob.type) {
+            case MobType::Poop:
+                if (stomped) { mob.alive = false; return 1; }
+                else return -1;
+            case MobType::Turtle:
+                if (stomped) { mob.alive = false; return 2; }
+                else return -1;
+            case MobType::Boss:
+                if (stomped) {
+                    mob.health--;
+                    if (mob.health <= 0) { mob.alive = false; return 3; } 
+                    return 4; 
+                }
+                else return -1;
+        }
+    }
+    return 0;
+}
+
 bool World::collectCoins(float playerX, float playerY, float playerW, float playerH) {
     SDL_FRect playerRect = {playerX, playerY, playerW, playerH};
     for (auto& ch : chunks) {
@@ -114,6 +132,40 @@ bool World::pointInWater(float ptx, float pty) {
 bool World::fullyInWater(float px, float py, float pw, float ph) {
     return pointInWater(px, py) && pointInWater(px + pw, py) &&
            pointInWater(px, py + ph) && pointInWater(px + pw, py + ph);
+}
+
+void World::spawnMobs(Chunk& chunk) {
+    if (chunk.platforms.empty()) return;
+    int level = currentTier + 1; 
+    int sumToLevel = level * (level + 1) / 2;
+    int mobCount = rand() % (sumToLevel + 1) + level;
+    if (mobCount > 20) mobCount = 20;
+
+    float speed = 60.0f + currentTier * 20.0f;
+    for (int i = 0; i < mobCount; i++) {
+        SDL_FRect tile = chunk.platforms[rand() % chunk.platforms.size()];
+        Mob mob;
+        mob.w = 40; mob.h = 40;
+        mob.x = tile.x;
+        mob.y = tile.y - mob.h;
+        mob.vx = (rand() % 2 == 0) ? speed : -speed;
+        mob.facingLeft = mob.vx < 0;
+        mob.vy = 0;
+        mob.alive = true;
+        mobs.push_back(mob);
+    }
+}
+
+void World::cycleForward(int winH) {
+    chunks.erase(chunks.begin());
+    float lastEnd = chunks.back().startX + chunkWidth;
+    Chunk c;
+    c.generate(lastEnd, chunkWidth, chunkSurfaces[1 + rand() % (chunkSurfaces.size() - 1)]);
+    spawnMobs(c);
+    chunks.push_back(c);
+    for (auto& ch : chunks) ch.hasLeftBarrier = false;
+    chunks[0].hasLeftBarrier = true;
+    rebuildPlatforms();
 }
 
 void World::init() {
@@ -167,6 +219,12 @@ void World::draw(SDL_Renderer* renderer, int winH) {
             SDL_Rect dst = {(int)(ch.startX - cameraX), 0, 20, winH};
             SDL_RenderCopy(renderer, barrier, nullptr, &dst);
         }
+    }
+    for (auto& mob : mobs) {
+        if (!mob.alive) continue;
+            SDL_Rect r = {(int)(mob.x - cameraX), (int)mob.y, (int)mob.w, (int)mob.h};
+            SDL_RendererFlip flip = mob.facingLeft ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL;
+            SDL_RenderCopyEx(renderer, Mob::Poomob, nullptr, &r, 0, nullptr, flip);
     }
 }
 
