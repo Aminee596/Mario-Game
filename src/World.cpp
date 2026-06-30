@@ -145,6 +145,8 @@ void World::spawnMobs(Chunk& chunk) {
     for (int i = 0; i < mobCount; i++) {
         SDL_FRect tile = chunk.platforms[rand() % chunk.platforms.size()];
         Mob mob;
+        int roll = rand() % 100;
+        mob.type = (roll < 20 + currentTier * 10) ? MobType::Turtle : MobType::Poop;
         mob.w = 40; mob.h = 40;
         mob.x = tile.x;
         mob.y = tile.y - mob.h;
@@ -222,9 +224,11 @@ void World::draw(SDL_Renderer* renderer, int winH) {
     }
     for (auto& mob : mobs) {
         if (!mob.alive) continue;
-            SDL_Rect r = {(int)(mob.x - cameraX), (int)mob.y, (int)mob.w, (int)mob.h};
-            SDL_RendererFlip flip = mob.facingLeft ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL;
-            SDL_RenderCopyEx(renderer, Mob::Poomob, nullptr, &r, 0, nullptr, flip);
+        SDL_Texture* tex = Mob::Poomob;
+        if (mob.type == MobType::Turtle) tex = Mob::Turtlemob; else if (mob.type == MobType::Boss) tex = Mob::Boss;
+        SDL_Rect r = {(int)(mob.x - cameraX), (int)mob.y, (int)mob.w, (int)mob.h};
+        SDL_RendererFlip flip = mob.facingLeft ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL;
+        SDL_RenderCopyEx(renderer, tex, nullptr, &r, 0, nullptr, flip);
     }
 }
 

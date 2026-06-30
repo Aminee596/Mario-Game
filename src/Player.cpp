@@ -16,16 +16,27 @@ bool Player::loadSprites(SDL_Renderer* renderer) {
     baseAnimation[3] = loadTexture(renderer, "assets/walk3.png");
     baseAnimation[4] = loadTexture(renderer, "assets/jump.png");
     baseAnimation[5] = loadTexture(renderer, "assets/fall.png");
-    for (int i = 0; i < 6; i++) if (!baseAnimation[i]) return false;
-    if (baseAnimation[0]) SDL_QueryTexture(baseAnimation[0], nullptr, nullptr, &w, &h); w *= 2.3;h *= 2.3;
+    baseAnimation[6] = loadTexture(renderer, "assets/jumpcharge.png");
+    for (int i = 0; i < 7; i++) if (!baseAnimation[i]) return false;
+    if (baseAnimation[0]) SDL_QueryTexture(baseAnimation[0], nullptr, nullptr, &w, &h); w *= 2;h *= 2;
     return true;
 }
 
 void Player::handleInput(const Uint8* keys, float dt) {
     vx = 0;
-    if (keys[SDL_SCANCODE_LEFT]) { vx = -speed; facingLeft = true; }
+    if (keys[SDL_SCANCODE_LEFT])  { vx = -speed; facingLeft = true; }
     if (keys[SDL_SCANCODE_RIGHT]) { vx = speed;  facingLeft = false; }
-    if ((keys[SDL_SCANCODE_SPACE] || keys[SDL_SCANCODE_UP]) && onGround) { vy = -0890.0f; onGround = false; }
+    if (keys[SDL_SCANCODE_UP] && onGround)  { vy = -500.0f; onGround = false; }
+
+    bool jumpKey = keys[SDL_SCANCODE_SPACE];
+
+    if (jumpKey && onGround) {
+        chargingJump = true; jumpCharge += 1500.0f * dt;
+        if (jumpCharge > 590.0f) jumpCharge = 590.0f;
+    }
+    else if (!jumpKey && chargingJump && onGround) {
+        vy = -jumpCharge -350.0f; onGround = false; chargingJump = false; jumpCharge = 0;
+    }
 }
 
 void Player::update(float dt, float gravity, std::vector<SDL_FRect>& platforms) {
@@ -34,7 +45,7 @@ void Player::update(float dt, float gravity, std::vector<SDL_FRect>& platforms) 
     SDL_FRect pr = {x, y, (float)w, (float)h};
     for (auto& p : platforms) {
         if (pr.x < p.x + p.w && pr.x + pr.w > p.x && pr.y < p.y + p.h && pr.y + pr.h > p.y) {
-            if (vx > 0)      x = p.x - w;
+            if (vx > 0) x = p.x - w;
             else if (vx < 0) x = p.x + p.w;
             pr.x = x;
         }
@@ -57,7 +68,8 @@ void Player::update(float dt, float gravity, std::vector<SDL_FRect>& platforms) 
         }
     }
 
-    if (onGround && vx == 0.0f) state = PlayerState::Idle;
+    if (onGround && chargingJump) state = PlayerState::ChargingJump;
+    else if (onGround && vx == 0.0f) state = PlayerState::Idle;
     else if (onGround && vx != 0) state = PlayerState::Walking;
     else if (!onGround && vy < 0) state = PlayerState::Jumping;
     else state = PlayerState::Falling;
@@ -76,11 +88,12 @@ void Player::draw(SDL_Renderer* renderer, float cameraX) {
     if (state == PlayerState::Walking) current = baseAnimation[1 + walkFrame];
     if (state == PlayerState::Jumping) current = baseAnimation[4];
     if (state == PlayerState::Falling) current = baseAnimation[5];
+    if (state == PlayerState::ChargingJump) current = baseAnimation[6];
     SDL_RendererFlip flip = facingLeft ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL;
     SDL_Rect dst = {(int)roundf(x - cameraX), (int)roundf(y), w, h};
     SDL_RenderCopyEx(renderer, current, nullptr, &dst, 0, nullptr, flip);
 }
 
 void Player::free() {
-    for (int i = 0; i < 6; i++) if (baseAnimation[i]) { SDL_DestroyTexture(baseAnimation[i]); baseAnimation[i] = nullptr; }
+    for (int i = 0; i < 7; i++) if (baseAnimation[i]) { SDL_DestroyTexture(baseAnimation[i]); baseAnimation[i] = nullptr; }
 }
